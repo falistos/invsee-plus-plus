@@ -19,7 +19,6 @@ import com.janboerman.invsee.spigot.internal.EventHelper;
 import com.janboerman.invsee.spigot.internal.InvseePlatform;
 import com.janboerman.invsee.spigot.internal.NamesAndUUIDs;
 import com.janboerman.invsee.spigot.internal.OpenSpectatorsCache;
-import com.janboerman.invsee.spigot.internal.resolve.ResolveStrategyType;
 import com.mojang.authlib.GameProfile;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.Dynamic;
@@ -71,9 +70,6 @@ public class InvseeImpl implements InvseePlatform {
         this.plugin = plugin;
         this.cache = cache;
         this.scheduler = scheduler;
-
-        lookup.addUuidResolveStrategy(ResolveStrategyType.PLAYER_DATA_SAVE_FILES, new UUIDSearchSaveFilesStrategy(plugin, scheduler));
-        lookup.addNameResolveType(ResolveStrategyType.PLAYER_DATA_SAVE_FILES, new NameSearchSaveFilesStrategy(plugin, scheduler));
     }
 
     @Override
