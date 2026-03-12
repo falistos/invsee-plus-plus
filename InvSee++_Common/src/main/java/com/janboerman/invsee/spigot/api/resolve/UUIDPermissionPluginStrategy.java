@@ -52,7 +52,7 @@ public class UUIDPermissionPluginStrategy implements UUIDResolveStrategy {
                 } else {
                     CompletableFuture<UUID> luckPermsFuture = userManager.lookupUniqueId(userName);
                     luckPermsFuture.whenComplete((uuid, error) -> {
-                        if (error != null) resultFuture.complete(Optional.ofNullable(uuid));
+                        if (error == null) resultFuture.complete(Optional.ofNullable(uuid));
                         else resultFuture.complete(Optional.empty());
                     });
                 }

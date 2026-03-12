@@ -49,7 +49,7 @@ public class NamePermissionPluginStrategy implements NameResolveStrategy {
                 } else {
                     CompletableFuture<String> luckPermsFuture = userManager.lookupUsername(uniqueId);
                     luckPermsFuture.whenComplete((userName, error) -> {
-                        if (error != null) resultFuture.complete(Optional.ofNullable(userName));
+                        if (error == null) resultFuture.complete(Optional.ofNullable(userName));
                         else resultFuture.complete(Optional.empty());
                     });
                 }
